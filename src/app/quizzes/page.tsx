@@ -1,0 +1,162 @@
+"use client";
+
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { PageContainer } from '@/components/Layout/PageContainer';
+import { Card } from '@/components/ui/Card';
+import { Loading } from '@/components/ui/Loading';
+import { Button } from '@/components/ui/Button';
+import { LinkButton } from '@/components/ui/Button';
+
+interface Quiz {
+  id: string;
+  title: string;
+  description: string;
+  difficulty: 'beginner' | 'intermediate' | 'advanced';
+  estimated_time: number;
+  questions_count: number;
+  completed?: boolean;
+  score?: number;
+}
+
+export default function QuizzesPage() {
+  const [user, setUser] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [quizzes, setQuizzes] = useState<Quiz[]>([]);
+  const [difficulty, setDifficulty] = useState<string>('all');
+  const router = useRouter();
+
+  useEffect(() => {
+    const getUser = async () => {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        router.push('/login');
+        return;
+      }
+
+      try {
+        const response = await fetch('/api/auth/me', {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+
+        if (!response.ok) {
+          localStorage.removeItem('token');
+          localStorage.removeItem('user');
+          router.push('/login');
+          return;
+        }
+
+        const data = await response.json();
+        setUser(data.user);
+        setQuizzes([]);
+      } catch {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        router.push('/login');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getUser();
+  }, [router]);
+
+  const handleSignOut = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    router.push('/');
+  };
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  const filteredQuizzes = difficulty === 'all'
+    ? quizzes
+    : quizzes.filter((quiz: Quiz) => quiz.difficulty === difficulty);
+
+  return (
+    <PageContainer
+      title="音乐理论测验"
+      description="通过互动测验检验您的知识。"
+      user={user}
+      onSignOut={handleSignOut}
+    >
+      <div className="mb-8">
+        <h3 className="text-lg font-medium text-gray-700 mb-3">难度等级</h3>
+        <div className="flex flex-wrap gap-2">
+          <Button
+            variant={difficulty === 'all' ? 'primary' : 'outline'}
+            onClick={() => setDifficulty('all')}
+          >
+            全部等级
+          </Button>
+          <Button
+            variant={difficulty === 'beginner' ? 'primary' : 'outline'}
+            onClick={() => setDifficulty('beginner')}
+          >
+            初级
+          </Button>
+          <Button
+            variant={difficulty === 'intermediate' ? 'primary' : 'outline'}
+            onClick={() => setDifficulty('intermediate')}
+          >
+            中级
+          </Button>
+          <Button
+            variant={difficulty === 'advanced' ? 'primary' : 'outline'}
+            onClick={() => setDifficulty('advanced')}
+          >
+            高级
+          </Button>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {filteredQuizzes.length > 0 ? (
+          filteredQuizzes.map((quiz: Quiz) => (
+            <Card key={quiz.id} highlightBar>
+              <h4 className="text-xl font-bold text-gray-800 mb-2">{quiz.title}</h4>
+              <p className="text-gray-600 mb-4">{quiz.description}</p>
+
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className={`px-2 py-1 text-xs rounded-full ${
+                  quiz.difficulty === 'beginner' ? 'bg-green-100 text-green-800' :
+                  quiz.difficulty === 'intermediate' ? 'bg-amber-100 text-amber-800' :
+                  'bg-red-100 text-red-800'
+                }`}>
+                  {quiz.difficulty === 'beginner' ? '初级' : quiz.difficulty === 'intermediate' ? '中级' : '高级'}
+                </span>
+                <span className="px-2 py-1 text-xs bg-gray-100 text-gray-800 rounded-full">
+                  {quiz.questions_count} 题
+                </span>
+                <span className="px-2 py-1 text-xs bg-gray-100 text-gray-800 rounded-full">
+                  {quiz.estimated_time} 分钟
+                </span>
+              </div>
+
+              {quiz.completed && (
+                <div className="mb-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600">您的得分</span>
+                    <span className="text-sm font-medium text-amber-700">{quiz.score}%</span>
+                  </div>
+                </div>
+              )}
+
+              <div className="flex justify-end">
+                <LinkButton href={`/quizzes/${quiz.id}`}>
+                  {quiz.completed ? '重新测验' : '开始测验'}
+                </LinkButton>
+              </div>
+            </Card>
+          ))
+        ) : (
+          <div className="md:col-span-3 text-center p-8">
+            <p className="text-gray-600">该难度等级下暂无测验。</p>
+          </div>
+        )}
+      </div>
+    </PageContainer>
+  );
+}
