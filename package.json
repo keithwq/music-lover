@@ -1,7 +1,7 @@
 {
-  "name": "music-learning-app",
+  "name": "music-lover",
   "version": "1.0.0",
-  "description": "音乐学习应用 - 互动式音乐理论教学平台",
+  "description": "爱乐助手 - 互动式音乐理论教学平台",
   "author": {
     "name": "Developer",
     "email": "dev@example.com"
@@ -22,8 +22,8 @@
     "cypress": "cypress open"
   },
   "build": {
-    "appId": "com.music.learning.app",
-    "productName": "音乐学习应用",
+    "appId": "com.music-lover.app",
+    "productName": "爱乐助手",
     "files": [
       "electron/**/*",
       "out/**/*",

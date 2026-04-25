@@ -9,7 +9,7 @@
 
 ### 2. 准备 GitHub 仓库
 确保您的代码已经推送到 GitHub：
-- 仓库地址：https://github.com/keithwq/music.git
+- 仓库地址：https://github.com/keithwq/Music-Lover.git
 
 ---
 

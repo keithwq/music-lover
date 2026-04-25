@@ -4,7 +4,7 @@
 
 ### 1. GitHub 仓库
 - [x] 代码已推送到 GitHub
-- [x] 仓库地址：https://github.com/keithwq/music.git
+- [x] 仓库地址：https://github.com/keithwq/Music-Lover.git
 - [x] 分支：main
 
 ### 2. Cloudflare 账号

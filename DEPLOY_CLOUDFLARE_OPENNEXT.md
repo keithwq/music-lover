@@ -78,7 +78,7 @@ git push
 2. 点击 **Workers & Pages** → **Create application**
 3. 选择 **Pages** → **Connect to Git**
 4. 授权 Cloudflare 访问 GitHub
-5. 选择仓库：`keithwq/music`
+5. 选择仓库：`keithwq/Music-Lover`
 
 #### 步骤 3：配置构建设置
 
