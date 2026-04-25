@@ -24,13 +24,13 @@ https://dash.cloudflare.com/sign-up/pages
 2. **连接 GitHub（如果还没连接）**
    - 点击 "Connect GitHub"
    - 授权 Cloudflare 访问您的 GitHub 账号
-   - 确保选中 `keithwq/music` 仓库
+   - 确保选中 `keithwq/Music-Lover` 仓库
 
 3. **选择仓库**
-   - 在仓库列表中找到并选择：`keithwq/music`
+   - 在仓库列表中找到并选择：`keithwq/Music-Lover`
 
 4. **配置构建设置**
-   - **Project name**: `music-theory-assistant`
+   - **Project name**: `music-lover`
    - **Production branch**: `main`
    - **Build command**: `npm run cf-build`
    - **Build output directory**: `.open-next`
@@ -46,7 +46,7 @@ https://dash.cloudflare.com/sign-up/pages
 - 首次部署大约需要 5-10 分钟
 - 部署成功后，您会获得一个域名：
   ```
-  https://music-theory-assistant.pages.dev
+  https://music-lover.pages.dev
   ```
 
 ### 访问您的应用

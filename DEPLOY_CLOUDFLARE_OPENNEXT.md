@@ -57,7 +57,7 @@ npm run cf-deploy
 
 部署成功后，您会获得一个域名：
 ```
-https://music-theory-assistant.<your-subdomain>.workers.dev
+https://music-lover.<your-subdomain>.workers.dev
 ```
 
 ---
@@ -82,7 +82,7 @@ git push
 
 #### 步骤 3：配置构建设置
 
-- **Project name**: `music-theory-assistant`
+- **Project name**: `music-lover`
 - **Production branch**: `main`
 - **Build command**: `npm run cf-build`
 - **Build output directory**: `.open-next`

@@ -4,7 +4,7 @@
 
 ### 1. GitHub 仓库
 - [x] 代码已推送到 GitHub
-- [x] 仓库地址：https://github.com/keithwq/Music-Lover.git
+- [x] 仓库地址：https://github.com/keithwq/music.git
 - [x] 分支：main
 
 ### 2. Cloudflare 账号
@@ -28,11 +28,11 @@
 - [ ] 授权 Cloudflare 访问 GitHub
 
 ### 步骤 2：选择仓库
-- [ ] 选择仓库：`keithwq/music`
+- [ ] 选择仓库：`keithwq/Music-Lover`
 - [ ] 点击 **Begin setup**
 
 ### 步骤 3：配置项目
-- [ ] Project name: `music-theory-assistant`
+- [ ] Project name: `music-lover`
 - [ ] Production branch: `main`
 - [ ] Build command: `npm run build`
 - [ ] Build output directory: `.next`
@@ -57,7 +57,7 @@
 - [ ] 查看部署日志，确认无错误
 
 ### 步骤 6：测试访问
-- [ ] 访问获得的域名：`music-theory-assistant.pages.dev`
+- [ ] 访问获得的域名：`music-lover.pages.dev`
 - [ ] 测试页面加载速度
 - [ ] 测试登录/注册功能
 - [ ] 测试数据库连接

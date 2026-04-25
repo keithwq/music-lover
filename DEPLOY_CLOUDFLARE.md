@@ -29,7 +29,7 @@
 
 #### 步骤 3：连接 GitHub
 1. 点击 **Authorize Cloudflare Pages** 授权访问 GitHub
-2. 选择您的仓库：`keithwq/music`
+2. 选择您的仓库：`keithwq/Music-Lover`
 3. 点击 **Begin setup**
 
 #### 步骤 4：配置构建设置
@@ -54,7 +54,7 @@ Root directory: /
 #### 步骤 6：开始部署
 1. 点击 **Save and Deploy**
 2. 等待构建完成（约 3-5 分钟）
-3. 部署成功后会获得一个域名：`music-theory-assistant.pages.dev`
+3. 部署成功后会获得一个域名：`music-lover.pages.dev`
 
 ---
 
@@ -72,13 +72,13 @@ wrangler login
 
 #### 创建项目
 ```bash
-wrangler pages project create music-theory-assistant
+wrangler pages project create music-lover
 ```
 
 #### 部署
 ```bash
-npm run build
-wrangler pages deploy .next --project-name=music-theory-assistant
+npm run cf-build
+wrangler pages deploy .open-next --project-name=music-lover
 ```
 
 ---
