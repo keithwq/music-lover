@@ -1,6 +1,0 @@
-[pages]
-build_command = "npm run cf-build"
-output_directory = ".open-next"
-
-[site]
-bucket = ".open-next/assets"
