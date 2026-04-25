@@ -1,4 +1,4 @@
-# 音乐学习应用
+# 爱乐助手 (Music-lover)
 
 一个互动式音乐理论教学平台，帮助用户通过课程和工具学习音乐基础知识。
 
@@ -34,4 +34,4 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
 
 ## 部署
 
-支持 Netlify、Vercel 等平台部署。
+支持 Cloudflare Pages、Netlify、Vercel 等平台部署。

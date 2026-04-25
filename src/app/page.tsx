@@ -11,7 +11,7 @@ export default function Home() {
               <circle cx="6" cy="18" r="3" />
               <circle cx="18" cy="16" r="3" />
             </svg>
-            <h1 className="text-3xl font-bold">音乐助手</h1>
+            <h1 className="text-3xl font-bold">爱乐助手</h1>
           </div>
           <Link 
             href="/login" 
@@ -103,9 +103,9 @@ export default function Home() {
               <circle cx="6" cy="18" r="3" />
               <circle cx="18" cy="16" r="3" />
             </svg>
-            <h3 className="text-lg font-bold">音乐助手</h3>
+            <h3 className="text-lg font-bold">爱乐助手</h3>
           </div>
-          <p className="text-gray-400">&copy; 2025 音乐助手。保留所有权利。</p>
+          <p className="text-gray-400">&copy; 2025 爱乐助手。保留所有权利。</p>
         </div>
       </footer>
     </div>

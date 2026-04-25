@@ -2,8 +2,8 @@ import './globals.css';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: '音乐助手',
-  description: '音乐助手 - 让音乐学习更简单',
+  title: '爱乐助手',
+  description: '爱乐助手 - 让音乐学习更简单',
 };
 
 export default function RootLayout({
