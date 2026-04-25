@@ -142,7 +142,15 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 ### 2. 在 Cloudflare 设置环境变量
 1. 进入项目设置
 2. 点击 **Environment variables**
-3. 添加上述两个环境变量
+3. 添加以下环境变量（根据您的 Supabase 配置）：
+
+| Variable name | Value | Production | Preview |
+|--------------|-------|------------|---------|
+| `NEXT_PUBLIC_SUPABASE_URL` | 您的 Supabase URL | ✅ | ✅ |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | 您的 Supabase Anon Key | ✅ | ✅ |
+| `DATABASE_URL` | PostgreSQL 连接字符串 | ✅ | ❌ |
+| `JWT_SECRET` | JWT 密钥（长随机字符串） | ✅ | ❌ |
+
 4. 点击 **Save**
 
 ### 3. 重新部署
